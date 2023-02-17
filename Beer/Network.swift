@@ -9,12 +9,14 @@ import Foundation
 import Combine
 
 final class Network: ObservableObject {
-    
+    // MARK: - Internal properties
     static let shared = Network()
     
+    // MARK: - Private properties
     private let baseUrl = "https://randomuser.me/api/"
     private let numberOfPeople = 10
     
+    // MARK: - Internal methods
     func getUsers() -> AnyPublisher<Array<UserInfo>, Error> {
         guard let url = URL(string: "\(baseUrl)?results=\(numberOfPeople)") else { return Fail(error: URLError(.badURL)).eraseToAnyPublisher()}
         

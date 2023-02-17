@@ -10,9 +10,10 @@ import Firebase
 
 @main
 struct BeerApp: App {
-    
+    // MARK: - Internal properties
     @StateObject var userStateViewModel = UserStateViewModel()
     
+    // MARK: - Initialization
     init() {
         FirebaseApp.configure()
     }
@@ -29,7 +30,7 @@ struct BeerApp: App {
 }
 
 struct ApplicationSwitcher: View {
-    
+    // MARK: - Internal properties
     @EnvironmentObject var vm: UserStateViewModel
     
     var body: some View {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ActivityIndicator: View {
-    
+    // MARK: - Private properties
     @State private var isAnimating: Bool = false
     
     var body: some View {
@@ -33,18 +33,21 @@ struct ActivityIndicator: View {
             self.isAnimating = true
         }
     }
-    
+}
+
+struct ActivityIndicator_Previews: PreviewProvider {
+    static var previews: some View {
+        ActivityIndicator()
+    }
+}
+
+private extension ActivityIndicator {
+    // MARK: - Private methods
     func calcScale(index: Int) -> CGFloat {
         return (!isAnimating ? 1.0 - CGFloat(Float(index)) / 5.0 : 0.2 + CGFloat(index) / 5.0)
     }
     
     func calcYOffset(_ geometry: GeometryProxy) -> CGFloat {
         return geometry.size.width / 10.0 - geometry.size.height / 2.0
-    }
-}
-
-struct ActivityIndicator_Previews: PreviewProvider {
-    static var previews: some View {
-        ActivityIndicator()
     }
 }

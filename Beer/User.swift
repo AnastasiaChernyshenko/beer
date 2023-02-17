@@ -12,7 +12,7 @@ struct UserResponse: Decodable {
     let results: [UserInfo]
 }
 
-class UserInfo: Identifiable, Decodable, ObservableObject, Equatable {
+final class UserInfo: Identifiable, Decodable, ObservableObject, Equatable {
     static func == (lhs: UserInfo, rhs: UserInfo) -> Bool {
         return lhs.email == rhs.email
     }

@@ -9,8 +9,8 @@ import SwiftUI
 import Firebase
 
 struct ProfileView: View {
-    
-    @EnvironmentObject var userState: UserStateViewModel
+    // MARK: - Private properties
+    @EnvironmentObject private var userState: UserStateViewModel
     @State private var showLogOutAlert = false
     
     var body: some View {

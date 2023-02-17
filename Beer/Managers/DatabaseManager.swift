@@ -9,12 +9,16 @@ import Foundation
 import Firebase
 
 final class DatabaseManager {
-    
+    // MARK: - Internal properties
     static var shared = DatabaseManager()
     
+    // MARK: - Private properties
     private let database = Database.database().reference()
     private var currentUser: User?
-    
+}
+
+extension DatabaseManager {
+    // MARK: - Internal methods
     func addUser(name: String, email: String, onSuccess: (() -> Void)?, onError: ((Error?) -> Void )?) {
         guard  let fUser = FirebaseManager.shared.auth.currentUser else {
             onError?(UserErrors.cantGetFBUser)

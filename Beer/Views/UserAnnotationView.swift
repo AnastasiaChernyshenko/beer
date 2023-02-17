@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserAnnotationView: View {
-    
+    // MARK: - Internal properties
     let imageURL: String
     
     var body: some View {

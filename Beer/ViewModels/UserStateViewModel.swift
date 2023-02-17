@@ -9,7 +9,7 @@ import Foundation
 
 @MainActor
 final class UserStateViewModel: ObservableObject {
-    
+    // MARK: - Published properties
     @Published var user: User?
     @Published var drinkingBuddies = [DrinkingBuddy]()
     @Published var isLoggedIn = false
@@ -17,10 +17,14 @@ final class UserStateViewModel: ObservableObject {
     @Published var errorText: String?
     @Published var isShowErrorView = false
     
+    // MARK: - Initialization
     init() {
-        isLoggedIn = FirebaseManager.shared.isSignedIn
+        setup()
     }
-    
+}
+
+extension UserStateViewModel {
+    // MARK: - Authorization
     func signOut() {
         isLoading = true
         FirebaseManager.shared.signOutUser(onSuccess: { [weak self] in
@@ -30,7 +34,7 @@ final class UserStateViewModel: ObservableObject {
             self?.errorHandler(error)
         })
     }
-
+    
     func signInUser(userEmail: String, userPassword: String) {
         isLoading = true
         FirebaseManager.shared.signInUser(userEmail: userEmail, userPassword: userPassword, onSuccess: { [weak self] in
@@ -40,7 +44,7 @@ final class UserStateViewModel: ObservableObject {
             self?.errorHandler(error)
         })
     }
-
+    
     func signUpUser(name: String, userEmail: String, userPassword: String) {
         isLoading = true
         FirebaseManager.shared.signUpUser(userEmail: userEmail, userPassword: userPassword, onSuccess: { [weak self] in
@@ -55,6 +59,7 @@ final class UserStateViewModel: ObservableObject {
         })
     }
     
+    // MARK: - User data
     func getUserData() {
         isLoading = true
         DatabaseManager.shared.getUserData { [weak self] user in
@@ -68,6 +73,11 @@ final class UserStateViewModel: ObservableObject {
 }
 
 private extension UserStateViewModel {
+    // MARK: - Private methods
+    func setup() {
+        isLoggedIn = FirebaseManager.shared.isSignedIn
+    }
+    
     func errorHandler(_ error: Error?) {
         isLoading = false
         errorText = error?.localizedDescription

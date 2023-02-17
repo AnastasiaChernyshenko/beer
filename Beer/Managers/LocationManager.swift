@@ -9,24 +9,19 @@ import Foundation
 import CoreLocation
 
 final class LocationManager: NSObject, ObservableObject {
-    
-    @Published var location: CLLocationCoordinate2D?
-    
+    // MARK: - Private properties
+    private var location: CLLocationCoordinate2D?
     private let manager = CLLocationManager()
     
+    // MARK: - Initialization
     override init() {
         super.init()
         
-        manager.desiredAccuracy = kCLLocationAccuracyKilometer
-        manager.delegate = self
-        manager.startUpdatingLocation()
-    }
-    
-    func requestLocation() {
-        manager.requestWhenInUseAuthorization()
+        setup()
     }
 }
 
+// MARK: - CLLocationManagerDelegate
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         location = locations.first?.coordinate
@@ -42,9 +37,23 @@ extension LocationManager: CLLocationManagerDelegate {
 }
 
 extension LocationManager {
+    // MARK: - Internal methods
+    func requestLocation() {
+        manager.requestWhenInUseAuthorization()
+    }
+    
     func checkPermission() {
         if manager.authorizationStatus == .notDetermined {
             manager.requestWhenInUseAuthorization()
         }
+    }
+}
+
+private extension LocationManager {
+    // MARK: - Private properties
+    func setup() {
+        manager.desiredAccuracy = kCLLocationAccuracyKilometer
+        manager.delegate = self
+        manager.startUpdatingLocation()
     }
 }

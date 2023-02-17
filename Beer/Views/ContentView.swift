@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    // MARK: - Private properties
     @State private var showingSignUpPage = false
     @State private var showingLoginPage = false
     

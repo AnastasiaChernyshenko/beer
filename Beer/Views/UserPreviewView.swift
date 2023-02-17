@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserPreviewView: View {
-    
+    // MARK: - Internal properties
     @ObservedObject var vm: MapViewModel
     
     var body: some View {

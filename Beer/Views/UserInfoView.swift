@@ -9,10 +9,13 @@ import SwiftUI
 import MapKit
 
 struct UserInfoView: View {
-    
-    @ObservedObject private var vm: UserInfoViewModel
+    // MARK: - Internal properties
     @Binding var tabIndex: Int
     
+    // MARK: - Private properties
+    @ObservedObject private var vm: UserInfoViewModel
+    
+    // MARK: - Initialization
     init(vm: UserInfoViewModel, tabIndex: Binding<Int>) {
         self.vm = vm
         self._tabIndex = tabIndex

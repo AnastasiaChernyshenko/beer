@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    
+    // MARK: - Internal properties
     @EnvironmentObject var vm: UserStateViewModel
     @State var currentTab = 0
     

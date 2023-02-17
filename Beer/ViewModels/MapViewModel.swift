@@ -13,7 +13,7 @@ import Combine
 private let kyivCenter = CLLocationCoordinate2D(latitude: 50.4489126, longitude: 30.5252008)
 
 final class MapViewModel: ObservableObject {
-    
+    // MARK: - Published properties
     @Published var tracking: MapUserTrackingMode = .follow
     @Published var error: Swift.Error?
     @Published var showUserError = false
@@ -22,15 +22,20 @@ final class MapViewModel: ObservableObject {
     @Published var shitUser: UserInfo?
     @Published var selectedUser: UserInfo?
     
+    // MARK: - Internal properties
     var mapRegion: MKCoordinateRegion = MKCoordinateRegion(
         center: kyivCenter,
         span: MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0)
     )
     
+    // MARK: - Private properties
     private var cancellables = Set<AnyCancellable>()
     private var locationManager = LocationManager()
     private let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-    
+}
+
+extension MapViewModel {
+    // MARK: - Internal methods
     func onAppear() {
         guard users.isEmpty else { return }
         getUsers()
@@ -73,6 +78,7 @@ final class MapViewModel: ObservableObject {
 }
 
 private extension MapViewModel {
+    // MARK: - Private methods
     func updateMapRegionFor(user: UserInfo) {
         mapRegion = MKCoordinateRegion(center: getLocationForUser(user), span: mapSpan)
     }

@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct HistoryView: View {
-    
+    // MARK: - Internal properties
     @ObservedObject var viewModel: HistoryViewModel
     
+    // MARK: - Initialization
     init(viewModel: HistoryViewModel) {
         self.viewModel = viewModel
     }

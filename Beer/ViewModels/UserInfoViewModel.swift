@@ -9,13 +9,17 @@ import Foundation
 import UIKit
 
 final class UserInfoViewModel: ObservableObject {
-    
+    // MARK: - Internal properties
     var selectedUser: UserInfo
     
+    // MARK: - Initialization
     init(selectedUser: UserInfo) {
         self.selectedUser = selectedUser
     }
-    
+}
+
+extension UserInfoViewModel {
+    // MARK: - Internal methods
     func addUserToHistory() {
         let name = selectedUser.name.first + " " + selectedUser.name.last
         let buddy = DrinkingBuddy(

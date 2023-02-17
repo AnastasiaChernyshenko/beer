@@ -10,10 +10,11 @@ import MapKit
 import CoreLocationUI
 
 struct SearchUsersMapView: View {
-    
+    // MARK: - Internal properties
     @ObservedObject var vm: MapViewModel
     @Binding var tabIndex: Int
     
+    // MARK: - Initialization
     init(vm: MapViewModel, tabIndex: Binding<Int>) {
         self.vm = vm
         self._tabIndex = tabIndex

@@ -9,9 +9,11 @@ import SwiftUI
 import Firebase
 
 struct SignInView: View {
-    
-    @EnvironmentObject var userState: UserStateViewModel
+    // MARK: - Internal properties
     @ObservedObject var vm: SignInViewModel
+    
+    // MARK: - Private properties
+    @EnvironmentObject private var userState: UserStateViewModel
     
     var body: some View {
         Color.yellowColor

@@ -9,9 +9,11 @@ import SwiftUI
 import Firebase
 
 struct SignUpView: View {
-    
-    @EnvironmentObject var userState: UserStateViewModel
+    // MARK: - Internal properties
     @ObservedObject var vm: SignUpViewModel
+    
+    // MARK: - Private properties
+    @EnvironmentObject private var userState: UserStateViewModel
     
     var body: some View {
         HStack {
