@@ -22,7 +22,7 @@ struct SearchUsersMapView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             mapView
-            VStack(spacing: 0) {
+            VStack {
                 Spacer()
                 ZStack {
                     if vm.selectedUser != nil {
@@ -36,8 +36,8 @@ struct SearchUsersMapView: View {
         .sheet(item: $vm.shitUser) { user in
             UserInfoView(vm: UserInfoViewModel(selectedUser: user), tabIndex: $tabIndex)
         }
-        .alert(vm.error?.localizedDescription ?? Constants.error, isPresented: $vm.showUserError) {
-            Button(Constants.error, role: .cancel) {
+        .alert(vm.error?.localizedDescription ?? "common.error", isPresented: $vm.showUserError) {
+            Button("common.ok", role: .cancel) {
                 vm.showUserError = false
             }
         }
@@ -58,7 +58,7 @@ private extension SearchUsersMapView {
             userTrackingMode: $vm.tracking,
             annotationItems: vm.users) { user in
             MapAnnotation(coordinate: vm.getLocationForUser(user)) {
-                UserAnnotationView(imageURL: user.picture.thumbnail).scaleEffect(user == vm.selectedUser ? 1 : 0.7)
+                UserAnnotationView(imageURL: user.picture.thumbnail).scaleEffect(user == vm.selectedUser ? 1.0 : 0.7)
                     .onTapGesture(count: 1, perform: {
                         vm.selectedUser = user
                     })
@@ -71,7 +71,7 @@ private extension SearchUsersMapView {
 
     var userPreviewView: some View {
         UserPreviewView(vm: vm)
-            .shadow(color: Color.black.opacity(0.3), radius: 20)
+            .shadow(color: Color.black.opacity(0.3), radius: 20.0)
             .padding()
             .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
     }

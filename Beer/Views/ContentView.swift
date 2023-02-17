@@ -33,23 +33,23 @@ struct ContentView_Previews: PreviewProvider {
 
 private extension ContentView {
     var welcomeText: some View {
-        Text(Constants.contentTitle)
+        Text("authorization.title")
             .font(.largeTitle)
             .fontWeight(.semibold)
-            .padding(.bottom, 20)
+            .padding(.bottom, 20.0)
     }
     
     var welcomeImage: some View {
         Image.pivoRetroPoster
             .resizable()
             .aspectRatio(contentMode: .fill)
-            .frame(width: 300, height: 300)
+            .frame(width: 300.0, height: 300.0)
             .clipped()
-            .padding(.bottom, 75)
+            .padding(.bottom, 75.0)
     }
     
     var signInButton: some View {
-        Button(Constants.advancedUser) {
+        Button("authorization.advanced_user") {
             showingLoginPage.toggle()
         }.sheet(isPresented: $showingLoginPage) {
             SignInView(vm: SignInViewModel())
@@ -61,7 +61,7 @@ private extension ContentView {
     }
     
     var signUpButton: some View {
-        Button(Constants.beginnerAlcoholic) {
+        Button("authorization.beginner_alcoholic") {
             showingSignUpPage.toggle()
         }.sheet(isPresented: $showingSignUpPage) {
             SignUpView(vm: SignUpViewModel())

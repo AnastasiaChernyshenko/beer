@@ -37,8 +37,8 @@ private extension HistoryView {
                 Image.ooopsIcon
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: 300, maxHeight: 300)
-                Text(Constants.noOneFound)
+                    .frame(maxWidth: 300.0, maxHeight: 300.0)
+                Text("map.no_one_found")
                     .font(.headline)
             }
         }
@@ -48,22 +48,22 @@ private extension HistoryView {
         List {
             ForEach($viewModel.drinkingBuddies.indices, id: \.self) { index in
                 let historyUser = viewModel.drinkingBuddies[index]
-                HStack(alignment: .center, spacing: 5) {
-                    VStack(alignment: .leading, spacing: 5) {
+                HStack(alignment: .center, spacing: 5.0) {
+                    VStack(alignment: .leading, spacing: 5.0) {
                         AsyncImage(url: URL(string: historyUser.picture))
                             .scaledToFill()
-                            .frame(width: 80, height: 80)
-                            .cornerRadius(10)
+                            .frame(width: 80.0, height: 80.0)
+                            .cornerRadius(10.0)
                     }
                     
-                    VStack(alignment: .leading, spacing: 8) {
+                    VStack(alignment: .leading, spacing: 8.0) {
                         Text(historyUser.name)
                             .font(.title2)
-                            .padding(5)
+                            .padding(5.0)
                         
                         Text(historyUser.email)
                             .font(.subheadline)
-                            .padding(5)
+                            .padding(5.0)
                     }
                 }
             }

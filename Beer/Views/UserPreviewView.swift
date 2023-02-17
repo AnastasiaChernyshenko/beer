@@ -12,24 +12,24 @@ struct UserPreviewView: View {
     @ObservedObject var vm: MapViewModel
     
     var body: some View {
-        HStack(alignment: .bottom, spacing: 0) {
-            VStack(alignment: .leading, spacing: 16) {
+        HStack(alignment: .bottom) {
+            VStack(alignment: .leading, spacing: 16.0) {
                 imageSection
                 titleSection
             }
             
-            VStack(spacing: 8) {
+            VStack(spacing: 8.0) {
                 infoButton
                 nextButton
             }
         }
-        .padding(20)
+        .padding(20.0)
         .background(
-            RoundedRectangle(cornerRadius: 10)
+            RoundedRectangle(cornerRadius: 10.0)
                 .fill(.ultraThinMaterial)
-                .offset(y: 65)
+                .offset(y: 65.0)
         )
-        .cornerRadius(10)
+        .cornerRadius(10.0)
     }
 }
 
@@ -38,16 +38,16 @@ extension UserPreviewView {
         ZStack {
             AsyncImage(url: URL(string: vm.selectedUser?.picture.large ?? ""))
                 .scaledToFill()
-                .frame(width: 100, height: 100)
+                .frame(width: 100.0, height: 100.0)
                 .cornerRadius(10)
         }
-        .padding(6)
+        .padding(6.0)
         .background(Color.white)
-        .cornerRadius(10)
+        .cornerRadius(10.0)
     }
     
     private var titleSection: some View {
-        VStack(alignment: .leading, spacing: 4) {
+        VStack(alignment: .leading, spacing: 4.0) {
             Text(vm.selectedUser?.name.first ?? "")
                 .font(.title2)
                 .fontWeight(.bold)
@@ -61,9 +61,9 @@ extension UserPreviewView {
         Button {
             vm.shitUser = vm.selectedUser
         } label: {
-            Text(Constants.info)
+            Text("map.info")
                 .font(.headline)
-                .frame(width: 125, height: 35)
+                .frame(width: 125.0, height: 35.0)
         }
         .buttonStyle(.borderedProminent)
     }
@@ -73,9 +73,9 @@ extension UserPreviewView {
             Button {
                 vm.nextButtonPressed()
             } label: {
-                Text(Constants.next)
+                Text("map.next")
                     .font(.headline)
-                    .frame(width: 125, height: 35)
+                    .frame(width: 125.0, height: 35.0)
             }
             .buttonStyle(.bordered)
         }

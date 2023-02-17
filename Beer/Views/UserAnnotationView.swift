@@ -16,25 +16,25 @@ struct UserAnnotationView: View {
             ZStack {
                 AsyncImage(url: URL(string: imageURL))
                     .scaledToFit()
-                    .frame(width: 30, height: 30)
+                    .frame(width: 30.0, height: 30.0)
                     .font(.headline)
                     .foregroundColor(.white)
-                    .padding(6)
+                    .padding(6.0)
                     .background(Color.white)
-                    .cornerRadius(36)
+                    .cornerRadius(36.0)
             }
-            .padding(6)
+            .padding(6.0)
             .background(Color.mainColor)
-            .cornerRadius(36)
+            .cornerRadius(36.0)
             
             Image.triangleFill
                 .resizable()
                 .scaledToFit()
                 .foregroundColor(Color.mainColor)
-                .frame(width: 10, height: 10)
+                .frame(width: 10.0, height: 10.0)
                 .rotationEffect(Angle(degrees: 180))
-                .offset(y: -3)
-                .padding(.bottom, 40)
+                .offset(y: -3.0)
+                .padding(.bottom, 40.0)
         }
     }
 }

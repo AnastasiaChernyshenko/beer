@@ -27,9 +27,9 @@ struct ProfileView: View {
                         ActivityIndicator()
                     }
                 }
-                    .alert(Constants.logoutConfirmation, isPresented: $showLogOutAlert) {
-                        Button(Constants.cancel, role: .cancel) { }
-                        Button(Constants.yes) {
+                    .alert("authorization.log_out_confirm", isPresented: $showLogOutAlert) {
+                        Button("common.cancel", role: .cancel) { }
+                        Button("common.yes") {
                             userState.signOut()
                         }
                     }
@@ -52,24 +52,24 @@ private extension ProfileView {
         Image.beerIllustration
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(maxWidth: 300, maxHeight: 300)
+            .frame(maxWidth: 300.0, maxHeight: 300.0)
     }
     
     var userName: some View {
         Text(userState.user?.name ?? "" )
             .font(.title2)
             .fontWeight(.bold)
-            .padding(.bottom, 15)
+            .padding(.bottom, 15.0)
     }
     
     var userEmail: some View {
         Text(userState.user?.email ?? "" )
             .font(.subheadline)
-            .padding(.bottom, 75)
+            .padding(.bottom, 75.0)
     }
     
     var logoutButton: some View {
-        Button(Constants.logout, action: {
+        Button("authorization.log_out", action: {
             showLogOutAlert.toggle()
         })
         .tint(.red)

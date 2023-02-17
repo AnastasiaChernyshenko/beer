@@ -1,0 +1,40 @@
+/* 
+  Localizable.strings
+  Beer
+
+  Created by mac on 17.02.2023.
+  
+*/
+
+// MARK: - Common
+"common.error" = "Error";
+"common.ok" = "OK";
+"common.yes" = "Yes";
+"common.cancel" = "Cancel";
+
+// MARK: - Authorization
+"authorization.sign_up" = "Sign Up";
+"authorization.sign_in" = "Sign In";
+"authorization.log_out_confirm" = "Log out?";
+"authorization.log_out" = "Log out";
+"authorization.username" = "Username";
+"authorization.email" = "Email";
+"authorization.password" = "Password";
+"authorization.confirm_password" = "Confirm Password";
+"authorization.password_rule" = "*The password should include a minimum of 8 characters and 1 Uppercase letter (A-Z), 1 Lowercase letter (a-z), 1 Digit (0-9)";
+"authorization.advanced_user" = "Advanced user";
+"authorization.beginner_alcoholic" = "Beginner Alcoholic";
+"authorization.title" = "Let's grab some beer";
+
+// MARK: - Map
+"map.show_current_location" = "Show current location";
+"map.info" = "Info";
+"map.next" = "Next";
+"map.no_one_found" = "No one found";
+"map.offer_drink" = "Offer a drink";
+"map.in_google_maps" = "in Google Maps";
+
+// MARK: - Home
+"home.history" = "History";
+"home.profile" = "Profile";
+"home.map" = "Find someone";

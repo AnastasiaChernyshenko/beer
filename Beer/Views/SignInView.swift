@@ -27,8 +27,8 @@ struct SignInView: View {
                     }
                 }.padding()
             )
-            .alert(userState.errorText ?? "Error", isPresented: $userState.isShowErrorView) {
-                Button("OK", role: .cancel) {
+            .alert(userState.errorText ?? "common.error", isPresented: $userState.isShowErrorView) {
+                Button("common.ok", role: .cancel) {
                     userState.isShowErrorView = false
                 }
             }
@@ -45,25 +45,25 @@ struct SignInView_Previews: PreviewProvider {
 private extension SignInView {
     
     var emailTextField: some View {
-        TextField(Constants.email, text: $vm.email)
+        TextField("authorization.email", text: $vm.email)
             .autocapitalization(.none)
             .padding()
             .background(.white)
             .cornerRadius(5.0)
-            .padding(.bottom, 20)
+            .padding(.bottom, 20.0)
     }
     
     var passwordTextField: some View {
-        SecureField(Constants.password, text: $vm.password)
+        SecureField("authorization.password", text: $vm.password)
             .autocapitalization(.none)
             .padding()
             .background(.white)
             .cornerRadius(5.0)
-            .padding(.bottom, 20)
+            .padding(.bottom, 20.0)
     }
     
     var signInButton: some View {
-        Button(Constants.signIn) {
+        Button("authorization.sign_in") {
             userState.signInUser(userEmail: vm.email, userPassword: vm.password)
         }.disabled(!vm.updateSignInButtonEnable())
             .buttonStyle(.borderedProminent)

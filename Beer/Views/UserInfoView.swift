@@ -40,26 +40,26 @@ private extension UserInfoView {
                    content: { image in
             image.resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(maxWidth: 300, maxHeight: 300)
+                .frame(maxWidth: 300.0, maxHeight: 300.0)
         },
                    placeholder: {
             ProgressView()
         })
-        .cornerRadius(10)
-        .padding(.bottom, 20)
+        .cornerRadius(10.0)
+        .padding(.bottom, 20.0)
     }
     
     var userEmail: some View {
         Text(vm.selectedUser.email)
             .font(.subheadline)
-            .padding(.bottom, 75)
+            .padding(.bottom, 75.0)
     }
     
     var userName: some View {
         Text(vm.selectedUser.name.first + " " + vm.selectedUser.name.last)
             .font(.title2)
             .fontWeight(.bold)
-            .padding(.bottom, 15)
+            .padding(.bottom, 15.0)
     }
     
     var addToHistotyButton: some View {
@@ -67,7 +67,7 @@ private extension UserInfoView {
             vm.addUserToHistory()
             tabIndex = 2
         } label: {
-            Text(Constants.offerDrink)
+            Text("map.offer_drink")
                 .font(.headline)
         }
         .tint(Color.mainColor)
@@ -79,7 +79,7 @@ private extension UserInfoView {
         Button {
             vm.openInGoogleMaps()
         } label: {
-            Text(Constants.openInGoogleMaps)
+            Text("map.in_google_maps")
                 .font(.headline)
         }
         .tint(Color.mainColor)

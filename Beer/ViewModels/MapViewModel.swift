@@ -24,7 +24,7 @@ final class MapViewModel: ObservableObject {
     
     var mapRegion: MKCoordinateRegion = MKCoordinateRegion(
         center: kyivCenter,
-        span: MKCoordinateSpan(latitudeDelta: 2, longitudeDelta: 2)
+        span: MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0)
     )
     
     private var cancellables = Set<AnyCancellable>()
