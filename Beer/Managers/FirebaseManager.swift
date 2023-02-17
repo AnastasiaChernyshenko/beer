@@ -16,6 +16,9 @@ final class FirebaseManager {
     var isSignedIn: Bool {
         return auth.currentUser != nil
     }
+    
+    // MARK: - Initialization
+    private init() { }
 }
 
 extension FirebaseManager {

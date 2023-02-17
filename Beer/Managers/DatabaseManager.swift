@@ -15,6 +15,9 @@ final class DatabaseManager {
     // MARK: - Private properties
     private let database = Database.database().reference()
     private var currentUser: User?
+    
+    // MARK: - Initialization
+    private init() { }
 }
 
 extension DatabaseManager {

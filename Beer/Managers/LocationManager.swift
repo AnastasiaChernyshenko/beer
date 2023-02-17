@@ -9,12 +9,15 @@ import Foundation
 import CoreLocation
 
 final class LocationManager: NSObject, ObservableObject {
+    // MARK: - Internal properties
+    static let shared = LocationManager()
+    
     // MARK: - Private properties
     private var location: CLLocationCoordinate2D?
     private let manager = CLLocationManager()
-    
+
     // MARK: - Initialization
-    override init() {
+    private override init() {
         super.init()
         
         setup()

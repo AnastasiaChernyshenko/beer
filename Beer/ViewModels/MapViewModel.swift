@@ -30,7 +30,7 @@ final class MapViewModel: ObservableObject {
     
     // MARK: - Private properties
     private var cancellables = Set<AnyCancellable>()
-    private var locationManager = LocationManager()
+    private var locationManager = LocationManager.shared
     private let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
 }
 
